@@ -1,8 +1,8 @@
 {
   "products": [
     {
-      "name": "deploy-arch-ibm-kms",
-      "label": "Cloud automation for Key Protect",
+      "name": "deploy-arch-ibm-secrets-manager",
+      "label": "Cloud automation for Secrets Manager",
       "product_kind": "solution",
       "tags": [
         "ibm_created",
@@ -13,75 +13,68 @@
         "converged_infra"
       ],
       "keywords": [
-        "KMS",
-        "Key",
-        "Key Ring",
-        "Key Protect",
+        "Secrets",
+        "Secrets Manager",
         "IaC",
         "infrastructure as code",
         "terraform",
         "solution"
       ],
-      "short_description": "Creates and configures IBM Cloud Key Management resources",
-      "long_description": "This architecture supports creating and configuring an IBM Key Protect instance, Key Rings, and Keys. For more details on Key Protect, [see here](https://cloud.ibm.com/docs/key-protect/index.html).",
-      "offering_docs_url": "https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive/blob/main/solutions/fully-configurable/README.md",
-      "offering_icon_url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive/main/images/key_protect_icon.svg",
+      "short_description": "Cloud architecture including Secrets Manager instance and optional security, logging and notification services.",
+      "long_description": "This deployable architecture is used to provision and configure an [IBM Cloud Secrets Manager](https://www.ibm.com/products/secrets-manager) instance. **Optionally**, supports creating and/or configuring:\n* [IBM Cloud account](https://cloud.ibm.com/docs/account?topic=account-account-getting-started): To set up IBM Cloud accounts settings.\n* [Key Protect](https://cloud.ibm.com/docs/key-protect?topic=key-protect-getting-started-tutorial): For data encryption using customer-managed keys.\n* [Cloud Logs](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-getting-started): Logging and monitoring platform logs.\n* [Cloud Monitoring](https://cloud.ibm.com/docs/monitoring?topic=monitoring-getting-started):Measure how users and applications interact with the Secrets Manager instance.\n* [Event Notifications](https://cloud.ibm.com/docs/event-notifications?topic=event-notifications-getting-started): Send notifications of events to other users, or destinations, by using email, SMS or other supported delivery channels.\n\nℹ️ This Terraform-based automation is part of a broader suite of IBM-maintained Infrastructure as Code (IaC) assets, each following the naming pattern \"Cloud automation for *servicename*\" and focusing on single IBM Cloud service. These single-service deployable architectures can be used on their own to streamline and automate service deployments through an [IaC approach](https://cloud.ibm.com/docs/secure-enterprise?topic=secure-enterprise-understanding-projects), or assembled together into a broader [automated IaC stack](https://cloud.ibm.com/docs/secure-enterprise?topic=secure-enterprise-config-stack) to automate the deployment of an end-to-end solution architecture.",
+      "offering_docs_url": "https://github.com/terraform-ibm-modules/terraform-ibm-secrets-manager/blob/main/README.md",
+      "offering_icon_url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-secrets-manager/main/images/secrets_manager.svg",
       "provider_name": "IBM",
       "features": [
         {
-          "title": "Creates a Key Protect instance",
-          "description": "For more details on Key Protect instances, [see here](https://cloud.ibm.com/catalog/services/key-protect#about)."
+          "title": "Creates a Secrets Manager instance",
+          "description": "Get started with Secrets Manager by creating an instance. [Learn more](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-getting-started)."
         },
         {
-          "title": "Creates Key Rings and Keys",
-          "description": "For more details on Key Rings and Keys in a KMS instance (Key Protect or HPCS), [see here](https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive/blob/main/solutions/fully-configurable/DA-keys.md)."
+          "title": "Create secret groups",
+          "description": "Secret groups help you to organize and manage your secrets. [Learn more](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-secret-groups&interface=ui)."
         },
         {
-          "title": "Creates Context-Based Restriction rules for Key Protect instance",
-          "description": "For more details on Context-Based Restriction rules, [see here](https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive/blob/main/solutions/fully-configurable/DA-cbr_rules.md)."
+          "title": "Manage access to your secrets",
+          "description": "Manage access for secret groups by creating access groups. [Learn more](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-assign-access#assign-access-secret-group-console)."
+        },
+        {
+          "title": "Configure an IAM credentials engine",
+          "description": "An IAM credentials engine can be used to manage the lifecycle of your IBM Cloud resources through Secrets Manager. [Learn more](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-configure-iam-engine&interface=ui)."
+        },
+        {
+          "title": "Sets up authorization policy",
+          "description": "Sets up IBM IAM authorization policy between IBM Secrets Manager instance and IBM Key Management Service (KMS) instance. It also supports Event Notification authorization policy. [Learn more](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-integrations)."
+        },
+        {
+          "title": "Configures lifecycle notifications",
+          "description": "Optionally, you can choose to configure lifecycle notifications by integrating the Event Notifications service. [Learn more](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-event-notifications&interface=ui)."
+        },
+        {
+          "title": "Sets up logging for Secrets Manager instance",
+          "description": "Optionally, you can set up IBM Cloud Logs service to route, alert and visualize platform logs generated by your Secrets Manager instance. [Learn more](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-logging)."
+        },
+        {
+          "title": "Sets up monitoring operational metrics for Secrets Manager instance",
+          "description": "Optionally, you can set up IBM Cloud Monitoring service to measure how users and applications interact with your Secrets Manager instance. [Learn more](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-operational-metrics)."
         }
       ],
-      "support_details": "This product is in the community registry, as such support is handled through the originated repo. If you experience issues please open an issue in that repository [https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive/issues](https://github.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive/issues). Please note this product is not supported via the IBM Cloud Support Center.",
       "flavors": [
         {
           "label": "Fully configurable",
           "name": "fully-configurable",
+          "index": 1,
           "install_type": "fullstack",
           "working_directory": "solutions/fully-configurable",
           "compliance": {
             "authority": "scc-v3",
             "profiles": [
               {
-                "profile_name": "CIS IBM Cloud Foundations Benchmark v1.1.0",
-                "profile_version": "1.1.0"
+                "profile_name": "IBM Cloud Framework for Financial Services",
+                "profile_version": "1.7.0"
               }
             ]
           },
-          "iam_permissions": [
-            {
-              "role_crns": [
-                "crn:v1:bluemix:public:iam::::serviceRole:Manager",
-                "crn:v1:bluemix:public:iam::::role:Editor"
-              ],
-              "service_name": "kms",
-              "notes": "[Optional] Required if you are creating a new Key Protect instance or provisioning associated resources like key rings and keys."
-            },
-            {
-              "role_crns": [
-                "crn:v1:bluemix:public:iam::::serviceRole:Manager",
-                "crn:v1:bluemix:public:iam::::role:Editor"
-              ],
-              "service_name": "hs-crypto",
-              "notes": "[Optional] Required if you are provisioning resources like key rings and keys for an existing Hyper Protect Crypto Services (HPCS) instance."
-            },
-            {
-              "role_crns": [
-                "crn:v1:bluemix:public:iam::::role:Administrator"
-              ],
-              "service_name": "iam-identity",
-              "notes": "[Optional] Required if Cloud automation for account configuration is enabled."
-            }
-          ],
           "configuration": [
             {
               "key": "ibmcloud_api_key"
@@ -91,8 +84,16 @@
               "required": true,
               "options": [
                 {
-                  "displayname": "Dallas (us-south)",
-                  "value": "us-south"
+                  "displayname": "Osaka (jp-osa)",
+                  "value": "jp-osa"
+                },
+                {
+                  "displayname": "Sydney (au-syd)",
+                  "value": "au-syd"
+                },
+                {
+                  "displayname": "Tokyo (jp-tok)",
+                  "value": "jp-tok"
                 },
                 {
                   "displayname": "Frankfurt (eu-de)",
@@ -107,20 +108,8 @@
                   "value": "eu-es"
                 },
                 {
-                  "displayname": "Osaka (jp-osa)",
-                  "value": "jp-osa"
-                },
-                {
-                  "displayname": "Sao Paulo (br-sao)",
-                  "value": "br-sao"
-                },
-                {
-                  "displayname": "Sydney (au-syd)",
-                  "value": "au-syd"
-                },
-                {
-                  "displayname": "Tokyo (jp-tok)",
-                  "value": "jp-tok"
+                  "displayname": "Dallas (us-south)",
+                  "value": "us-south"
                 },
                 {
                   "displayname": "Montreal (ca-mon)",
@@ -131,8 +120,12 @@
                   "value": "ca-tor"
                 },
                 {
-                  "displayname": "Washington (us-east)",
+                  "displayname": "Washington DC (us-east)",
                   "value": "us-east"
+                },
+                {
+                  "displayname": "Sao Paulo (br-sao)",
+                  "value": "br-sao"
                 }
               ]
             },
@@ -141,18 +134,63 @@
               "required": true
             },
             {
-              "key": "key_protect_plan",
+              "key": "service_plan",
               "required": true,
               "options": [
                 {
-                  "displayname": "Tiered Pricing",
-                  "value": "tiered-pricing"
+                  "displayname": "Standard",
+                  "value": "standard"
                 },
                 {
-                  "displayname": "Cross Region Resiliency",
-                  "value": "cross-region-resiliency"
+                  "displayname": "Trial",
+                  "value": "trial"
                 }
               ]
+            },
+            {
+              "key": "enable_platform_metrics",
+              "type": "string",
+              "default_value": "true",
+              "description": "When set to `true`, the IBM Cloud Monitoring instance will be configured to collect platform metrics from the provided region. You can configure 1 instance only of the IBM Cloud Monitoring service per region to collect platform metrics in that location. Check with the account or service administrator if another monitoring instance has already been configured. You may not have permissions to see all monitoring instances in the region. [Learn more](https://cloud.ibm.com/docs/monitoring?topic=monitoring-platform_metrics_enabling).",
+              "required": true,
+              "virtual": true,
+              "options": [
+                {
+                  "displayname": "true",
+                  "value": "true"
+                },
+                {
+                  "displayname": "false",
+                  "value": "false"
+                }
+              ]
+            },
+            {
+              "key": "logs_routing_tenant_regions",
+              "type": "list(string)",
+              "default_value": "[]",
+              "description": "To manage platform logs that are generated by IBM Cloud services in a region of IBM Cloud, you must create a tenant in each region that you operate. Pass a list of regions to create a tenant in. [Learn more](https://cloud.ibm.com/docs/logs-router?topic=logs-router-about-platform-logs).",
+              "required": true,
+              "virtual": true,
+              "custom_config": {
+                "grouping": "deployment",
+                "original_grouping": "deployment",
+                "config_constraints": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "key": "existing_resource_group_name",
+              "display_name": "resource_group",
+              "custom_config": {
+                "type": "resource_group",
+                "grouping": "deployment",
+                "original_grouping": "deployment",
+                "config_constraints": {
+                  "identifier": "rg_name"
+                }
+              }
             },
             {
               "key": "provider_visibility",
@@ -173,58 +211,76 @@
               "hidden": true
             },
             {
-              "key": "existing_resource_group_name",
-              "display_name": "resource_group",
-              "custom_config": {
-                "type": "resource_group",
-                "grouping": "deployment",
-                "original_grouping": "deployment",
-                "config_constraints": {
-                  "identifier": "rg_name"
-                }
-              }
+              "key": "secrets_manager_instance_name"
             },
             {
-              "key": "key_protect_instance_name"
-            },
-            {
-              "key": "existing_kms_instance_crn"
-            },
-            {
-              "key": "keys"
-            },
-            {
-              "key": "rotation_interval_month"
-            },
-            {
-              "key": "kms_endpoint_type",
+              "key": "secrets_manager_endpoint_type",
               "hidden": true,
               "options": [
                 {
-                  "displayname": "Public",
+                  "displayname": "public",
                   "value": "public"
                 },
                 {
-                  "displayname": "Private",
+                  "displayname": "private",
                   "value": "private"
                 }
               ]
             },
             {
-              "key": "key_protect_allowed_network",
+              "key": "secrets_manager_resource_tags",
+              "custom_config": {
+                "grouping": "deployment",
+                "original_grouping": "deployment",
+                "config_constraints": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "key": "skip_secrets_manager_iam_auth_policy"
+            },
+            {
+              "key": "allowed_network",
               "options": [
                 {
-                  "displayname": "Public and private",
-                  "value": "public-and-private"
+                  "displayname": "private-only",
+                  "value": "private-only"
                 },
                 {
-                  "displayname": "Private only",
-                  "value": "private-only"
+                  "displayname": "public-and-private",
+                  "value": "public-and-private"
                 }
               ]
             },
             {
-              "key": "key_protect_resource_tags",
+              "key": "kms_encryption_enabled"
+            },
+            {
+              "key": "existing_kms_instance_crn"
+            },
+            {
+              "key": "existing_secrets_manager_kms_key_crn"
+            },
+            {
+              "key": "skip_secrets_manager_kms_iam_auth_policy"
+            },
+            {
+              "key": "ibmcloud_kms_api_key"
+            },
+            {
+              "key": "kms_key_ring_name"
+            },
+            {
+              "key": "kms_key_name"
+            },
+            {
+              "key": "kms_endpoint_type",
+              "hidden": true
+            },
+            {
+              "key": "event_notifications_email_list",
+              "type": "array",
               "custom_config": {
                 "grouping": "deployment",
                 "original_grouping": "deployment",
@@ -234,8 +290,22 @@
               }
             },
             {
-              "key": "key_protect_access_tags",
+              "key": "event_notifications_from_email"
+            },
+            {
+              "key": "event_notifications_reply_to_email"
+            },
+            {
+              "key": "existing_event_notifications_instance_crn"
+            },
+            {
+              "key": "skip_secrets_manager_event_notifications_iam_auth_policy"
+            },
+            {
+              "key": "secrets_manager_cbr_rules",
+              "type": "array",
               "custom_config": {
+                "type": "textarea",
                 "grouping": "deployment",
                 "original_grouping": "deployment",
                 "config_constraints": {
@@ -244,39 +314,97 @@
               }
             },
             {
-              "key": "key_protect_instance_cbr_rules"
+              "key": "secret_groups",
+              "type": "array",
+              "custom_config": {
+                "type": "textarea",
+                "grouping": "deployment",
+                "original_grouping": "deployment"
+              }
+            },
+            {
+              "key": "existing_secrets_manager_crn"
+            }
+          ],
+          "iam_permissions": [
+            {
+              "role_crns": [
+                "crn:v1:bluemix:public:iam::::role:Administrator",
+                "crn:v1:bluemix:public:iam::::serviceRole:Manager"
+              ],
+              "service_name": "secrets-manager",
+              "notes": "Required for creating an Secrets Manager instance. 'Manager' access required to create new secret groups."
+            },
+            {
+              "role_crns": [
+                "crn:v1:bluemix:public:iam::::serviceRole:Manager",
+                "crn:v1:bluemix:public:iam::::role:Editor"
+              ],
+              "service_name": "event-notifications",
+              "notes": "[Optional] Required if you are configuring an Event Notifications Instance."
+            },
+            {
+              "role_crns": [
+                "crn:v1:bluemix:public:iam::::serviceRole:Manager",
+                "crn:v1:bluemix:public:iam::::role:Editor"
+              ],
+              "service_name": "sysdig-monitor",
+              "notes": "[Optional] Required if you are consuming the Observability deployable architecture which sets up Cloud Monitoring."
+            },
+            {
+              "role_crns": [
+                "crn:v1:bluemix:public:iam::::serviceRole:Manager",
+                "crn:v1:bluemix:public:iam::::role:Editor"
+              ],
+              "service_name": "logs",
+              "notes": "[Optional] Required if you are consuming the Observability deployable architecture which sets up Cloud Logs."
+            },
+            {
+              "role_crns": [
+                "crn:v1:bluemix:public:iam::::serviceRole:Manager",
+                "crn:v1:bluemix:public:iam::::role:Editor"
+              ],
+              "service_name": "hs-crypto",
+              "notes": "[Optional] Required if you are creating/configuring keys in an existing Hyper Protect Crypto Services (HPCS) instance for encryption."
+            },
+            {
+              "role_crns": [
+                "crn:v1:bluemix:public:iam::::serviceRole:Manager",
+                "crn:v1:bluemix:public:iam::::role:Editor"
+              ],
+              "service_name": "kms",
+              "notes": "[Optional] Required if you are creating/configuring Key Protect instance and keys for encryption."
+            },
+            {
+              "role_crns": [
+                "crn:v1:bluemix:public:iam::::role:Administrator"
+              ],
+              "service_name": "iam-identity",
+              "notes": "[Optional] Required if Cloud automation for account configuration is enabled."
             }
           ],
           "architecture": {
             "features": [
               {
-                "title": "Key Protect instance",
-                "description": "Creates and configures a Key Protect instance."
-              },
-              {
-                "title": "Key Rings and Keys",
-                "description": "Creates Key Rings and Keys for either Key Protect or Hyper Protect Crypto Services instances."
-              },
-              {
-                "title": "Context-Based Restriction rules",
-                "description": "Creates Context-Based Restriction rules for Key Protect instance."
+                "title": " ",
+                "description": "Configured to use IBM secure by default standards, but can be edited to fit your use case."
               }
             ],
             "diagrams": [
               {
                 "diagram": {
-                  "caption": "IBM Key Protect architecture",
-                  "url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive/main/reference-architecture/key_protect.svg",
+                  "caption": "Secrets Manager and optional surround services.",
+                  "url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-secrets-manager/main/reference-architecture/secrets_manager.svg",
                   "type": "image/svg+xml"
                 },
-                "description": "This architecture supports creating and configuring IBM Key Protect resources"
+                "description": "This architecture supports creating and configuring a Secrets Manager instance and optional security, logging and notification services."
               }
             ]
           },
           "dependencies": [
             {
               "name": "deploy-arch-ibm-account-infra-base",
-              "description": "Cloud automation for Account Configuration organizes your IBM Cloud account with a ready-made set of resource groups by default—and, when you enable the \"with Account Settings\" option, it also applies baseline security and governance settings.",
+              "description": "Advanced users can leverage cloud automation for account configuration to configure IBM Cloud account with a ready-made set of resource groups by default. When you enable the \"with account settings\" option, it also applies baseline security and governance settings.",
               "catalog_id": "7a4d68b4-cf8b-40cd-a3d1-f49aff526eb3",
               "flavors": [
                 "resource-group-only",
@@ -286,8 +414,35 @@
               "id": "63641cec-6093-4b4f-b7b0-98d2f4185cd6-global",
               "input_mapping": [
                 {
+                  "dependency_input": "prefix",
+                  "version_input": "prefix",
+                  "reference_version": true
+                },
+                {
                   "dependency_output": "security_resource_group_name",
                   "version_input": "existing_resource_group_name"
+                }
+              ],
+              "optional": true,
+              "on_by_default": false,
+              "version": "v3.0.7"
+            },
+            {
+              "name": "deploy-arch-ibm-kms",
+              "id": "2cad4789-fa90-4886-9c9e-857081c273ee-global",
+              "description": "Enable Cloud automation for Key Protect to use your own managed encryption keys. If disabled, IBM Cloud's default service-managed encryption is used.",
+              "flavors": [
+                "fully-configurable"
+              ],
+              "catalog_id": "7a4d68b4-cf8b-40cd-a3d1-f49aff526eb3",
+              "input_mapping": [
+                {
+                  "dependency_output": "kms_instance_crn",
+                  "version_input": "existing_kms_instance_crn"
+                },
+                {
+                  "version_input": "kms_encryption_enabled",
+                  "value": true
                 },
                 {
                   "dependency_input": "prefix",
@@ -295,14 +450,76 @@
                   "reference_version": true
                 },
                 {
-                  "dependency_input": "provider_visibility",
-                  "version_input": "provider_visibility",
+                  "dependency_input": "region",
+                  "version_input": "region",
                   "reference_version": true
                 }
               ],
               "optional": true,
-              "on_by_default": false,
-              "version": "v3.0.7"
+              "on_by_default": true,
+              "version": "v5.1.4"
+            },
+            {
+              "name": "deploy-arch-ibm-observability",
+              "description": "Enables provisioning and configuration of IBM Cloud Logs to collect, route, analyze, and visualize platform logs and events — including those generated by the Event Notifications instance — for enhanced visibility, alerting, and troubleshooting.",
+              "flavors": [
+                "instances"
+              ],
+              "id": "a3137d28-79e0-479d-8a24-758ebd5a0eab-global",
+              "catalog_id": "7a4d68b4-cf8b-40cd-a3d1-f49aff526eb3",
+              "input_mapping": [
+                {
+                  "dependency_input": "prefix",
+                  "version_input": "prefix",
+                  "reference_version": true
+                },
+                {
+                  "dependency_input": "region",
+                  "version_input": "region",
+                  "reference_version": true
+                },
+                {
+                  "dependency_input": "enable_platform_metrics",
+                  "version_input": "enable_platform_metrics",
+                  "reference_version": true
+                },
+                {
+                  "dependency_input": "logs_routing_tenant_regions",
+                  "version_input": "logs_routing_tenant_regions",
+                  "reference_version": true
+                }
+              ],
+              "optional": true,
+              "on_by_default": true,
+              "version": "v3.0.3"
+            },
+            {
+              "name": "deploy-arch-ibm-event-notifications",
+              "description": "Configures lifecycle notifications for your Secrets Manager instance. Also, supports creating a topic and configuring email subscriptions.",
+              "catalog_id": "7a4d68b4-cf8b-40cd-a3d1-f49aff526eb3",
+              "flavors": [
+                "fully-configurable"
+              ],
+              "id": "c7ac3ee6-4f48-4236-b974-b0cd8c624a46-global",
+              "input_mapping": [
+                {
+                  "dependency_output": "crn",
+                  "version_input": "existing_event_notifications_instance_crn"
+                },
+                {
+                  "dependency_input": "prefix",
+                  "version_input": "prefix",
+                  "reference_version": true
+                },
+                {
+                  "dependency_input": "region",
+                  "version_input": "region",
+                  "reference_version": true
+                }
+              ],
+              "optional": true,
+              "on_by_default": true,
+              "version": "v2.3.7"
             }
           ],
           "dependency_version_2": true,
@@ -311,42 +528,18 @@
         {
           "label": "Security-enforced",
           "name": "security-enforced",
+          "index": 2,
           "install_type": "fullstack",
           "working_directory": "solutions/security-enforced",
           "compliance": {
             "authority": "scc-v3",
             "profiles": [
               {
-                "profile_name": "CIS IBM Cloud Foundations Benchmark v1.1.0",
-                "profile_version": "1.1.0"
+                "profile_name": "IBM Cloud Framework for Financial Services",
+                "profile_version": "1.7.0"
               }
             ]
           },
-          "iam_permissions": [
-            {
-              "role_crns": [
-                "crn:v1:bluemix:public:iam::::serviceRole:Manager",
-                "crn:v1:bluemix:public:iam::::role:Editor"
-              ],
-              "service_name": "kms",
-              "notes": "[Optional] Required if you are creating a new Key Protect instance or provisioning associated resources like key rings and keys."
-            },
-            {
-              "role_crns": [
-                "crn:v1:bluemix:public:iam::::serviceRole:Manager",
-                "crn:v1:bluemix:public:iam::::role:Editor"
-              ],
-              "service_name": "hs-crypto",
-              "notes": "[Optional] Required if you are provisioning resources like key rings and keys for an existing Hyper Protect Crypto Services (HPCS) instance."
-            },
-            {
-              "role_crns": [
-                "crn:v1:bluemix:public:iam::::role:Administrator"
-              ],
-              "service_name": "iam-identity",
-              "notes": "[Optional] Required if Cloud automation for account configuration is enabled."
-            }
-          ],
           "configuration": [
             {
               "key": "ibmcloud_api_key"
@@ -356,8 +549,16 @@
               "required": true,
               "options": [
                 {
-                  "displayname": "Dallas (us-south)",
-                  "value": "us-south"
+                  "displayname": "Osaka (jp-osa)",
+                  "value": "jp-osa"
+                },
+                {
+                  "displayname": "Sydney (au-syd)",
+                  "value": "au-syd"
+                },
+                {
+                  "displayname": "Tokyo (jp-tok)",
+                  "value": "jp-tok"
                 },
                 {
                   "displayname": "Frankfurt (eu-de)",
@@ -372,20 +573,8 @@
                   "value": "eu-es"
                 },
                 {
-                  "displayname": "Osaka (jp-osa)",
-                  "value": "jp-osa"
-                },
-                {
-                  "displayname": "Sao Paulo (br-sao)",
-                  "value": "br-sao"
-                },
-                {
-                  "displayname": "Sydney (au-syd)",
-                  "value": "au-syd"
-                },
-                {
-                  "displayname": "Tokyo (jp-tok)",
-                  "value": "jp-tok"
+                  "displayname": "Dallas (us-south)",
+                  "value": "us-south"
                 },
                 {
                   "displayname": "Montreal (ca-mon)",
@@ -396,8 +585,12 @@
                   "value": "ca-tor"
                 },
                 {
-                  "displayname": "Washington (us-east)",
+                  "displayname": "Washington DC (us-east)",
                   "value": "us-east"
+                },
+                {
+                  "displayname": "Sao Paulo (br-sao)",
+                  "value": "br-sao"
                 }
               ]
             },
@@ -406,36 +599,22 @@
               "required": true
             },
             {
-              "key": "key_protect_plan",
+              "key": "service_plan",
               "required": true,
               "options": [
                 {
-                  "displayname": "Tiered Pricing",
-                  "value": "tiered-pricing"
+                  "displayname": "Standard",
+                  "value": "standard"
                 },
                 {
-                  "displayname": "Cross Region Resiliency",
-                  "value": "cross-region-resiliency"
+                  "displayname": "Trial",
+                  "value": "trial"
                 }
               ]
             },
             {
-              "key": "provider_visibility",
-              "options": [
-                {
-                  "displayname": "private",
-                  "value": "private"
-                },
-                {
-                  "displayname": "public",
-                  "value": "public"
-                },
-                {
-                  "displayname": "public-and-private",
-                  "value": "public-and-private"
-                }
-              ],
-              "hidden": true
+              "key": "existing_kms_instance_crn",
+              "required": true
             },
             {
               "key": "existing_resource_group_name",
@@ -450,19 +629,10 @@
               }
             },
             {
-              "key": "key_protect_instance_name"
+              "key": "secrets_manager_instance_name"
             },
             {
-              "key": "existing_kms_instance_crn"
-            },
-            {
-              "key": "keys"
-            },
-            {
-              "key": "rotation_interval_month"
-            },
-            {
-              "key": "key_protect_resource_tags",
+              "key": "secrets_manager_resource_tags",
               "custom_config": {
                 "grouping": "deployment",
                 "original_grouping": "deployment",
@@ -472,7 +642,26 @@
               }
             },
             {
-              "key": "key_protect_access_tags",
+              "key": "skip_secrets_manager_iam_auth_policy"
+            },
+            {
+              "key": "existing_secrets_manager_kms_key_crn"
+            },
+            {
+              "key": "skip_secrets_manager_kms_iam_auth_policy"
+            },
+            {
+              "key": "ibmcloud_kms_api_key"
+            },
+            {
+              "key": "kms_key_ring_name"
+            },
+            {
+              "key": "kms_key_name"
+            },
+            {
+              "key": "event_notifications_email_list",
+              "type": "array",
               "custom_config": {
                 "grouping": "deployment",
                 "original_grouping": "deployment",
@@ -482,33 +671,67 @@
               }
             },
             {
-              "key": "key_protect_instance_cbr_rules"
+              "key": "event_notifications_from_email"
+            },
+            {
+              "key": "event_notifications_reply_to_email"
+            },
+            {
+              "key": "existing_event_notifications_instance_crn"
+            },
+            {
+              "key": "skip_secrets_manager_event_notifications_iam_auth_policy"
+            },
+            {
+              "key": "secrets_manager_cbr_rules",
+              "type": "array",
+              "custom_config": {
+                "type": "textarea",
+                "grouping": "deployment",
+                "original_grouping": "deployment",
+                "config_constraints": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "key": "secret_groups",
+              "type": "array",
+              "custom_config": {
+                "type": "textarea",
+                "grouping": "deployment",
+                "original_grouping": "deployment"
+              }
+            },
+            {
+              "key": "existing_secrets_manager_crn"
+            }
+          ],
+          "iam_permissions": [
+            {
+              "role_crns": [
+                "crn:v1:bluemix:public:iam::::role:Administrator",
+                "crn:v1:bluemix:public:iam::::serviceRole:Manager"
+              ],
+              "service_name": "secrets-manager",
+              "notes": "Required for creating an Secrets Manager instance. 'Manager' access required to create new secret groups."
             }
           ],
           "architecture": {
-            "description": "This architecture supports creating and configuring a Key Protect instance.",
             "features": [
               {
-                "title": "Key Protect instance",
-                "description": "Creates and configures a Key Protect instance."
-              },
-              {
-                "title": "Key Rings and Keys",
-                "description": "Creates Key Rings and Keys for either Key Protect or Hyper Protect Crypto Services instances."
-              },
-              {
-                "title": "Context-Based Restriction rules",
-                "description": "Creates Context-Based Restriction rules for Key Protect instance."
+                "title": " ",
+                "description": "Configured to use IBM secure by default standards that can't be changed."
               }
             ],
             "diagrams": [
               {
                 "diagram": {
-                  "caption": "IBM Key Protect architecture",
-                  "url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-kms-all-inclusive/main/reference-architecture/key_protect.svg",
+                  "caption": "Secrets Manager",
+                  "url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-secrets-manager/main/reference-architecture/secrets_manager.svg",
                   "type": "image/svg+xml"
                 },
-                "description": "This architecture supports creating and configuring IBM Key Protect resources"
+                "description": "This architecture supports creating and configuring IBM Secrets Manager instance."
               }
             ]
           },
